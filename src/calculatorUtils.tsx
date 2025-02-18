@@ -14,6 +14,7 @@ export function calculate(tokens: Token[]): Token[]{
     newTokens = binaryOperation(newTokens, TokenType.Divide);
     newTokens = binaryOperation(newTokens, TokenType.Add);
     newTokens = binaryOperation(newTokens, TokenType.Subtract);
+    if(newTokens.length > 1){ console.log("expression does not resolve to a number (missing operands)")}
     return newTokens;
 }
 
@@ -46,6 +47,7 @@ function binaryOperation(tokens: Token[], opType: TokenType): Token[]{
     return tokens;
 }
 
+//TODO: actually handle problems, instead of just logging them
 function reportError(errorMsg: string){
     console.log(errorMsg)
 }
